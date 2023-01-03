@@ -27,10 +27,10 @@ Transductive approach는 모든 데이터의 이점을 취하게 된다. 이때�
 같은 빨간색 점들을 transductive algorithm으로 예측하게 되면 이제 B로 예측할 확률이 높아진다. 왜냐하면 다른 점들도 고려시 B에 모여있는 점이 하나의 클러스터로 학습될 가능성이 높아지기 때문이다.
 
 ### Contribution 
-GCN 논문의 두 가지 contribution이 있습니다. 
+GCN 논문의 두 가지 contribution이 있다. 
 
-1. 그래프에 직접적으로 적용할 수 있는 간단한 layer wise propagation rule을 도입했습니다. 
-2. semi supervised node classification task에서 잘 작동하는 것을 보입니다.
+1. 그래프에 직접적으로 적용할 수 있는 간단한 layer wise propagation rule을 도입했다. 
+2. semi supervised node classification task에서 잘 작동하는 것을 보인다.
 
 ### Smoothing and Laplacian regularization
 
