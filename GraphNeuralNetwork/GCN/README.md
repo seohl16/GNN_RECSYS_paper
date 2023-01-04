@@ -8,13 +8,13 @@ It works on simple nodes that are connected with edges like papers citing each o
 ### Transductive 
 하나의 그래프에서 다수 노드가 레이블이 없을 때 transductive 관점으로 볼 수 있다. 
 
-Transductive이란 unlabel data에 대해서 특성을 활용해 새로운 예측을 진행하는 것 
-반대로 inductive은 label된 노드를 참고해서 읽는 방식으로 supervised 방식으로 볼 수 있다. 
+여기서 *Transductive*이란 *unlabel data*에 대해서 특성을 활용해 새로운 예측을 진행하는 것을 의미한다. 
+
+반대로 *inductive*은 *label된 노드*를 참고해서 읽는 방식으로 supervised 방식으로 볼 수 있다. 
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/456414b0-3d3d-4c79-b98f-78cacdf3e9bf/transduction-image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230103%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230103T083813Z&X-Amz-Expires=86400&X-Amz-Signature=8341de05367232cb20d7838189f210bcb3eb0990e85cddface2cfdafe4692db7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22transduction-image.PNG.png%22&x-id=GetObject)
 
-출처 :  
-[https://en.wikipedia.org/wiki/Transduction_(machine_learning)](https://en.wikipedia.org/wiki/Transduction_(machine_learning))
+출처 :  [Transduction Wikipedia](https://en.wikipedia.org/wiki/Transduction_(machine_learning))
 
 Inductive approach는 label된 point 5개를 일단 학습하고 이를 이용해서 주변 unlabel point에 대한 라벨을 예측하게 한다. 
 
@@ -40,7 +40,7 @@ GCN 논문의 두 가지 contribution이 있다.
 
 라플라시안 정규화를 loss function에 추가해서 과적합을 막았다. 
 
-## Layer wise propagation rule
+### Layer wise propagation rule
 
 gcn is similar to densenet, conv2dnet’s layers. It has activation function and input and output. 
 
