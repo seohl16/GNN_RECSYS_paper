@@ -59,10 +59,3 @@ netflix recommendation contest에서 다른 메소드보다 우수한 성능을 
 Latent matrix factorization는 대규모 다차원 행렬을 SVD와 같은 차원 감소 기법으로 분해하는 과정에서 
 latent factor를 찾아내서 뽑아내는 방법이다. 
 
-
-## Reference 
-- [https://towardsdatascience.com/introduction-to-latent-matrix-factorization-recommender-systems-8dfc63b94875](https://towardsdatascience.com/introduction-to-latent-matrix-factorization-recommender-systems-8dfc63b94875)
-- [http://katbailey.github.io/mf/#/title](http://katbailey.github.io/mf/#/title)
-- [https://www.kaggle.com/code/robottums/probabalistic-matrix-factorization-with-suprise/notebook](https://www.kaggle.com/code/robottums/probabalistic-matrix-factorization-with-suprise/notebook)
-- [https://wooono.tistory.com/149](https://wooono.tistory.com/149)
-
