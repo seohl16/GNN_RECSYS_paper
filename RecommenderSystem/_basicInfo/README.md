@@ -45,5 +45,24 @@ User-based는 유저 단위로 묶게 되고 item-based는 비슷한 반응이 �
 일반적으로 item-based가 user based보다 더 정확도가 높다고 한다. \
 왜냐하면 같은 상품을 산다고, 유저 간의 취향이 비슷하다고 볼 수 없기 때문이다. 
 
+### 2-2. Model-based Collaborative filtering(latent-based collaborative filtering) 
 
+Latent based collaborative filtering uses matrix factorization. 
+Previously recommend system research used content-based filtering but after latent matrix factorization 
+methods outperformed other methods in netflix recommendation contest, it became a cornerstone. 
+Latent matrix factorization is a method of finding and extracting a latent factor in the process of 
+decomposing a large multi dimensional matrix with a dimension reduction technique such as SVD. 
+
+latent based collaborative filtering은 matrix factorization 행렬 분해를 기반하여 사용한다. 
+기존에는 콘텐츠 기반으로 추천했던 추천시스템 연구는 Latent matrix factorization 메소드가 
+netflix recommendation contest에서 다른 메소드보다 우수한 성능을 보이면서 cornerstone 즉 많이 사용되기 시작했다. 
+Latent matrix factorization는 대규모 다차원 행렬을 SVD와 같은 차원 감소 기법으로 분해하는 과정에서 
+latent factor를 찾아내서 뽑아내는 방법이다. 
+
+
+## Reference 
+- [https://towardsdatascience.com/introduction-to-latent-matrix-factorization-recommender-systems-8dfc63b94875](https://towardsdatascience.com/introduction-to-latent-matrix-factorization-recommender-systems-8dfc63b94875)
+- [http://katbailey.github.io/mf/#/title](http://katbailey.github.io/mf/#/title)
+- [https://www.kaggle.com/code/robottums/probabalistic-matrix-factorization-with-suprise/notebook](https://www.kaggle.com/code/robottums/probabalistic-matrix-factorization-with-suprise/notebook)
+- [https://wooono.tistory.com/149](https://wooono.tistory.com/149)
 
