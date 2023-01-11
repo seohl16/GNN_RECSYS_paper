@@ -102,8 +102,47 @@ Optimization을 위해서는 미니배치 sgd를 사용할 것이고, L2-norm의
 
 자세한 optimization procedure은 Algorithm 1에 있다. All embedding for entities and relationship은 random하게 초기화된다. 그리고 각 iteration마다, embedding vector of the entities는 normalized된다. 그리고 triplet 배치를 만들고 각 triplet마다 또 corrupted noise triplet을 만든다. 파라미터는 graident step에 따라 업데이트한다. 
 
+## 3. Related Works 
 
-## 3. Conclusion 
+본 논문에서 Related works로 두 개의 논문과 비교분석한다 : Structure Embeddings (SE) and Neural Tensor Model 
+
+[Structure Embeddings 이하 SE]() 모델은 entities를 Rk(k 크기의 벡터를 갖는 행렬), relationship을 두 개의 matrices L1과 L2로 임베딩한다. 
+SE는 d(L1h, L2t)의 dissimilarity function 결과가 corrupted triplet에 있어서 크도록 학습한다. 
+
+SE의 basic idea는 두 개의 엔티티가 같은 triplet에 속해 있다면, 특정 relationship을 나타내는 임베딩 스페이스에서 임베딩 위치가 가깝도록 만들게 한다. 
+head와 tail에 두 가지 다른 projection matrice를 사용하는 것은 달라지는 관계를 설명하기 위한 것이다. 
+
+엄밀히 말하면 k+1개의 dimension을 가진 SE는 k dimension 을 갖는 모델보다 affine transformation을 더 많이 표현할 수 있다. 
+하지만 TransE는 SE보다 단순하면서도 더 좋은 성능을 보였다. 
+
+다음 related work로는 [Neural Tensor Model]()이 있다. 이 모델은 s(h, l, t) score를 학습하는데 식은 다음과 같다. 
+![image](https://user-images.githubusercontent.com/68208055/211750822-5b2cfa18-dbfd-4a90-a26d-5352e2749367.png)
+
+여기서 L는 R(k^2) 크기 matrix이다. 
+
+만약 TransE의 dissimilarity function으로 제곱유클리드 거리를 사용했다면 식은 다음과 같다. 
+![image](https://user-images.githubusercontent.com/68208055/211750850-5e3dddbb-b1f9-462e-8eb1-5f3c13c03587.png)
+
+우리의 norm constraint를 1로 유지하자는 전제와 loss function 식을 생각해보면 corrupted triplet과 비교할 때 변수들의 절대값제곱은 크게 의미가 없어 진다. 
+
+따라서 dissimilarity 계산에서 유효한 것은 마지막 ht + l(t-h) 부분이 된다. 이는 Neural Tensor Model의 score 식과 굉장히 유사하다. 
+
+우리는 이 모델로 실험을 진행하지 않았지만 (거의 비슷한 시기에 공개되었기 때문에), TransE는 적은 파라미터를 사용해 기존 모델에 비해 학습과정을 단순하게 바꾸었고, underfitting을 막아주었다는 장점이 있다. 
+
+**TransE depending on interaction**
+
+TransE는 2way interaction을 표현하는데 강점이 있다. 반면 3 way interaction을 설며하는데에는 어려움이 있었다. 
+예를 들어 Kinships dataset이라고 작은 크기의 데이터셋이 있었는데, TransE는 여기서 최신 SOTA 모델에 비해 성능이 좋지 않았다. 
+그 이유는 이 데이터셋에서 ternary 3자 관계 (ex. 의사-환자-처방)이 중요했는데, TransE는 이런 관계를 잘 표현하지 못했기 때문이다. 
+하지만, TransE는 2way interaction이 주인 대규모 데이터셋에서는 효과를 보였다. 이는 TransE가 데이터셋에 따라 성능 차이가 존재함을 보여준다. 
+
+
+## 4. Experiments   
+
+생략 
+
+
+## 5. Conclusion 
 
 The model’s contribution은 다음과 같다. 
 
