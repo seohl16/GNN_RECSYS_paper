@@ -1,6 +1,6 @@
 # Studied TransE 
 
-한줄요약 : TransE 논문은 지식 그래프에서 가장 기반이 되는 Translation based model이며, 저차원의 벡터 공간에서 가볍고 성능이 좋은 모델을 제시했다는 의의가 존재한다. 
+> 한줄요약 : TransE 논문은 지식 그래프에서 가장 기반이 되는 Translation based model이며, 저차원의 벡터 공간에서 가볍고 성능이 좋은 모델을 제시했다는 의의가 존재한다. 
 
 ## 0. Abstract 
 
@@ -48,7 +48,7 @@ The relationship can be represented as (h, l t) where the embedding of tail enti
 is the sum of embedding of the head entity h and vector that depends on relationship l. 
 
 TransE는 에너지 기반 모델로, 각 엔티티와 관계를 저차원의 벡터로 표현하는 것을 목표로 하는 모델이다. 
-이 관게는 (h, l, t) 조합으로 표현할 수 있는데, 이때 tail entity t는 head entity h와 relationship을 나타내는 l 벡터의 합의 결과라고 볼 수 있다.
+이 관게는 (h, l, t) 조합으로 표현할 수 있는데, 이때 `tail entity t`는 `head entity h와 relationship을 나타내는 l 벡터의 합의 결과`라고 볼 수 있다.
 아래 그림을 참고 
 
 ![image](https://user-images.githubusercontent.com/68208055/211745833-458a5a28-ab33-4f24-9c00-0448a479897d.png)
@@ -62,4 +62,57 @@ Another motivation comes from the recent work where authors learn word embedding
 우선 지식 그래프 (knowledge base)에서 계층적인 관계가 비교적 common한데, 이를 잘 나타낼 수 있는 것이 translation이다. 형제 관계는 x axis로 parent child 관계는 y axis로 대입할 수 있다. 
 또 다른 이유는 최근 연구들이 word embedding의 일대일 관계를 나타낼 때 translation을 사용했기 때문이다. 
 여기서 더 나아가 우리는 여러 일대일 관계를 translation으로 표현할 수 있다고 보았다.
+
+## 2. Translation-based model 
+
+### Background knowledge for loss function
+
+2장에서는 TransE의 loss function에 대해 알아볼 것이다. 이때 함수를 이해하기 위해 파라미터 설명부터 하면.. 
+
+- the set of entities `E`는 엔티티 집합, the set of relationship `L` 관계 집합을 의미한다. 
+- `training set S`는 (h, l, t)라는 triplets로 구성되어 있다. 
+- `(h, l, t)`안에는 h, t entities와 둘의 관계인 l의 조합으로 구성되어 있다. `h, t` ≤ `E` and `l` ≤ `L`
+- 우리의 목표는 h + l ~= t로 h + ㅣ합 결과가 t에 가깝게 만드는 것이다. 
+- `d`는 dissimilarity measure이다. 
+- `k`는 embedding dimension 크기다.
+- `γ`는 margin hyperparameter를 의미한다. 
+- [x]+는 []안의 결과인 x에서 0보다 큰 값만 남긴다는 뜻 
+- h’, l, t’는 h 또는 t를 랜덤하게 다른 엔티티로 바꾼다는 뜻이다. 대신 둘다 동시에 바꾸지는 않는다. 
+
+> 참고로 dissimilarity measure는 두 대상이 얼마나 다른지 보여주는 measurement다. 
+similarity measure이 보통 0~1 사이 유사도를 표현하는 것과 다르게,  dissimilarity measure는 비슷하면 최소 0, 다르면 값이 무한정 커질 수 있다. 
+본 논문에서 이 dissimilarity measure로 L1, L2 norm을 사용했다. 
+
+> [x]+ 설명 ![image](https://user-images.githubusercontent.com/68208055/211747033-043b00ec-8c46-49e7-9f2b-37f284d9e152.png)
+
+### Loss function
+
+![image](https://user-images.githubusercontent.com/68208055/211746631-85d54bdb-3a76-48f1-8678-e0fb8b663afa.png)
+
+위 이미지는 TransE의 loss function이다. 모델은 d(h + l, t)을 최소한으로 나오도록 학습하려고 한다. d(h+l, t)는 다름 함수에 training set의 triplet 하나를 넣은 것을 의미한다. 더 나아가 noise가 있는 corrupted triplet인 d(h’ + l + t’)과의 차이는 크게 하고 싶다. 
+
+만약 d(h + l, t)의 값이 작으면 [] 안 결과 값은 작을 것이고 []+ 에 의해서 loss가 0이 될 것이다. 
+만약 d(h+1, t)의 값이 크고 d(h’ + l, t’)은 엉뚱하게 작으면 [] 안 값은 클 것이고  loss는 크게 나올 것이다.  
+모델은 training set안에 triplet (h, l, t)의 dissimilarity 즉 energy가 낮은 상황, (h’, l, t’)의 dissimilarity 즉 energy가 큰 상황을 원하게 된다.
+
+Optimization을 위해서는 미니배치 sgd를 사용할 것이고, L2-norm의 constraint는 1이다. 
+
+
+![image](https://user-images.githubusercontent.com/68208055/211747747-12e2fa7a-6aa0-4d14-a2b0-687ba16c1904.png)
+
+자세한 optimization procedure은 Algorithm 1에 있다. All embedding for entities and relationship은 random하게 초기화된다. 그리고 각 iteration마다, embedding vector of the entities는 normalized된다. 그리고 triplet 배치를 만들고 각 triplet마다 또 corrupted noise triplet을 만든다. 파라미터는 graident step에 따라 업데이트한다. 
+
+
+## 3. Conclusion 
+
+The model’s contribution은 다음과 같다. 
+
+- Knowledge base의 hierarhical relationship을 보여주는 embedding을 학습했다.
+- Freebase data의 large scale에서도 잘 작동했다.
+
+Future work로는 다양한 태스크에 적용하는 것이다. 
+예를 들어 word representation에 적용하면 더욱 쓸모가 있을 것으로 기대된다.
+
+
+
 
