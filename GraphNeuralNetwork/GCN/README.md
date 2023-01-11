@@ -6,25 +6,30 @@ It works on simple nodes that are connected with edges like papers citing each o
 
 ## Concepts 
 ### Transductive 
+GCN은 다수의 노드가 레이블이 없을 때 노드 레이블을 추측하는 태스크에서 성능을 확인한 모델이다. 
+
 하나의 그래프에서 다수 노드가 레이블이 없을 때 transductive 관점으로 볼 수 있다. 
 
-여기서 *Transductive*이란 *unlabel data*에 대해서 특성을 활용해 새로운 예측을 진행하는 것을 의미한다. 
+여기서 *Transductive*이란 *unlabeled data*에 대해서 특성을 활용해 새로운 예측을 진행하는 것을 의미한다. 
 
-반대로 *inductive*은 *label된 노드*를 참고해서 읽는 방식으로 supervised 방식으로 볼 수 있다. 
+반대로 *inductive*은 *labeled 노드*를 참고해서 읽는 방식으로, supervised 방식으로 볼 수 있다. 
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/456414b0-3d3d-4c79-b98f-78cacdf3e9bf/transduction-image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230103%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230103T083813Z&X-Amz-Expires=86400&X-Amz-Signature=8341de05367232cb20d7838189f210bcb3eb0990e85cddface2cfdafe4692db7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22transduction-image.PNG.png%22&x-id=GetObject)
 
 출처 :  [Transduction Wikipedia](https://en.wikipedia.org/wiki/Transduction_(machine_learning))
 
-Inductive approach는 label된 point 5개를 일단 학습하고 이를 이용해서 주변 unlabel point에 대한 라벨을 예측하게 한다. 
+위 그림을 바탕으로 Inductive와 Transductive의 차이를 살펴보겠다. 
 
-여기서 문제점은 supervised model은 5개만 가지고 학습을 진행할 수 밖에 없어 데이터 부족으로 성능이 좋지는 않을 것이라는 점이다. 
+Inductive approach는 labeled point들을 일단 학습하고 이를 이용해서 주변 unlabeled point에 대한 label을 예측하게 한다. 
 
-만약 그림에서 빨간색으로 묶인 가운데의 점들을 예측할 때 이 모델을 활용하면 A나 C일 확률이 높아진다. 왜냐하면 모여있는 클러스터를 보지 않고 단순히 A, C의 point 들과의 거리를 확인할 것이기 때문이다.
+여기서 문제점은 이 approach의 모델은 소수의 노드로만 학습을 진행할 수 밖에 없고, 클러스터를 학습하지 않아 성능이 좋지는 않을 것이라는 점이다. 
+
+만약 그림에서 빨간색으로 묶인 가운데의 점들을 예측할 때 Inductive 모델을 활용하면 A나 C일 확률이 높아진다. \
+왜냐하면 inductive model은 모여있는 클러스터를 보지 않고 단순히 A, C의 point 들과의 거리를 확인할 것이기 때문이다.
 
 Transductive approach는 모든 데이터의 이점을 취하게 된다. 이때는 그들이 실제로 묶여진 cluster를 참고해서 묶이게 된다. 
 
-같은 빨간색 점들을 transductive algorithm으로 예측하게 되면 이제 B로 예측할 확률이 높아진다. 왜냐하면 다른 점들도 고려시 B에 모여있는 점이 하나의 클러스터로 학습될 가능성이 높아지기 때문이다.
+다시 그림에서 예시를 들면, 같은 빨간색 점들을 transductive algorithm으로 예측하게 되면 이제 B로 예측할 확률이 높아진다. 그 이유는 다른 점들도 고려하게 되어 B에 모여있는 점이 하나의 클러스터로 학습될 가능성이 높아지기 때문이다.
 
 ### Contribution 
 GCN 논문의 두 가지 contribution이 있다. 
@@ -36,7 +41,7 @@ GCN 논문의 두 가지 contribution이 있다.
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/92e8e416-c039-4801-a932-93f785d5caad/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230103%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230103T084216Z&X-Amz-Expires=86400&X-Amz-Signature=e21641947208b2374a9a174befeba48c5b147f395caf07b3a0a96e29ad2e6aff&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 
-여기서 가정은 GCN에 학습할 대상은 레이블이 매우 적은 데이터이다.    
+GCN에 학습할 대상은 레이블이 매우 적은 데이터이다.    
 
 라플라시안 정규화를 loss function에 추가해서 과적합을 막았다. 
 
