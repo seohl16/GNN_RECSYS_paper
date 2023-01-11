@@ -102,7 +102,19 @@ Optimization을 위해서는 미니배치 sgd를 사용할 것이고, L2-norm의
 
 자세한 optimization procedure은 Algorithm 1에 있다. All embedding for entities and relationship은 random하게 초기화된다. 그리고 각 iteration마다, embedding vector of the entities는 normalized된다. 그리고 triplet 배치를 만들고 각 triplet마다 또 corrupted noise triplet을 만든다. 파라미터는 graident step에 따라 업데이트한다. 
 
-## 3. Related Works 
+## 3. Conclusion 
+
+The model’s contribution은 다음과 같다. 
+
+- Knowledge base의 hierarhical relationship을 보여주는 embedding을 학습했다.
+- Freebase data의 large scale에서도 잘 작동했다.
+
+Future work로는 다양한 태스크에 적용하는 것이다. 
+예를 들어 word representation에 적용하면 더욱 쓸모가 있을 것으로 기대된다.
+
+
+<!-- 
+ Related Works 
 
 본 논문에서 Related works로 두 개의 논문과 비교분석한다 : Structure Embeddings (SE) and Neural Tensor Model 
 
@@ -137,21 +149,5 @@ TransE는 2way interaction을 표현하는데 강점이 있다. 반면 3 way int
 하지만, TransE는 2way interaction이 주인 대규모 데이터셋에서는 효과를 보였다. 이는 TransE가 데이터셋에 따라 성능 차이가 존재함을 보여준다. 
 
 
-## 4. Experiments   
-
-생략 
-
-
-## 5. Conclusion 
-
-The model’s contribution은 다음과 같다. 
-
-- Knowledge base의 hierarhical relationship을 보여주는 embedding을 학습했다.
-- Freebase data의 large scale에서도 잘 작동했다.
-
-Future work로는 다양한 태스크에 적용하는 것이다. 
-예를 들어 word representation에 적용하면 더욱 쓸모가 있을 것으로 기대된다.
-
-
-
+-->
 
