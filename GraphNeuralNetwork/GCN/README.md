@@ -4,6 +4,12 @@ GCN은 graph structured data를 사용해서 semi-supervised learning을 적용�
 It works on simple nodes that are connected with edges like papers citing each others. 
 
 
+## Contribution 
+GCN 논문의 두 가지 contribution이 있다. 
+
+1. 그래프에 직접적으로 적용할 수 있는 간단한 layer wise propagation rule을 도입했다. 
+2. semi supervised node classification task에서 잘 작동하는 것을 보인다.
+
 ## Concepts 
 ### Transductive 
 GCN은 다수의 노드가 레이블이 없을 때 노드 레이블을 추측하는 태스크에서 성능을 확인한 모델이다. 
@@ -30,12 +36,6 @@ Inductive approach는 labeled point들을 일단 학습하고 이를 이용해�
 Transductive approach는 모든 데이터의 이점을 취하게 된다. 이때는 그들이 실제로 묶여진 cluster를 참고해서 묶이게 된다. 
 
 다시 그림에서 예시를 들면, 같은 빨간색 점들을 transductive algorithm으로 예측하게 되면 이제 B로 예측할 확률이 높아진다. 그 이유는 다른 점들도 고려하게 되어 B에 모여있는 점이 하나의 클러스터로 학습될 가능성이 높아지기 때문이다.
-
-### Contribution 
-GCN 논문의 두 가지 contribution이 있다. 
-
-1. 그래프에 직접적으로 적용할 수 있는 간단한 layer wise propagation rule을 도입했다. 
-2. semi supervised node classification task에서 잘 작동하는 것을 보인다.
 
 ### Smoothing and Laplacian regularization
 
