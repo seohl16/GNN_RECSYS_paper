@@ -3,32 +3,32 @@ Graph Neural Network &amp; Recommender System - paper review and code
 
 
 ### Paper review 일정 
-| Date | Year | Paper | Code |
-| :---: | --- | --- | --- |
-| 1/3 | 2016 | [Semi-Supervised Classification with Graph Convolutional Networks](https://arxiv.org/abs/1609.02907)| GCN |
-|     | 2014 | [DeepWalk: Online Learning of Social Representations](https://arxiv.org/abs/1403.6652)| Deepwalk |
-|     | 2008 | [Probabilistic Matrix Factorization](https://papers.nips.cc/paper/2007/file/d7322ed717dedf1eb4e6e52a37ea7bcd-Paper.pdf)| PMF |
-| 1/10| 2009 | [Matrix Factorization Techniques for Recommender Systems](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf)| Netflix |
-|     | 2008 | [Factorization Meets the Neighborhood: a Multifaceted Collaborative Filtering Model](https://dl.acm.org/doi/pdf/10.1145/1401890.1401944)| Netflix |
-|     | 2008 | [Collaborative Filtering for Implicit Feedback Datasets](http://yifanhu.net/PUB/cf.pdf)| OCCF |
-|     | 2012 | [BPR: Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf)| BPR |
-| 1/17| 2013 | [Translating Embeddings for Modeling Multi-relational Data](https://papers.nips.cc/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html)| TransE |
-|     | 2017 | [Collaborative Metric Learning](https://www.cs.cornell.edu/~ylongqi/paper/HsiehYCLBE17.pdf)| CML |
-|     | 2010 | [Factorization Machines](https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf)| FM |
-| 1/24| |Holiday|| 
-| 1/31| 2016 | [Wide & Deep Learning for Recommender Systems](https://arxiv.org/abs/1606.07792) | wide&deep|
-|     | 2008 | [SoRec: Social Recommendation Using Probabilistic Matrix Factorization](https://dl.acm.org/doi/10.1145/1458082.1458205)| SoRec |
-|     | 2011 | [Recommender Systems with Social Regularization](https://dennyzhou.github.io/papers/RSR.pdf)| SoReg |
-|     | 2017 | [metapath2vec : Scalable Representation Learning for Heterogeneous Networks](https://dl.acm.org/doi/10.1145/3097983.3098036)| Metapath2Vec 
-| 2/7 | 2018 | [Deep Graph Infomax](https://arxiv.org/abs/1809.10341)| DGI |
-|     | 2017 | [Inductive Representation Learning on Large Graphs](https://papers.nips.cc/paper/2017/file/5dd9db5e033da9c6fb5ba83c7a7ebea9-Paper.pdf)| GraphSAGE |
-|     | 2016 | [Variational Graph Auto-Encoders](https://arxiv.org/abs/1611.07308)| VGAE |
-|     | 2013 | [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)| VAE |
-| 2/14| 2016 | [Deep Neural Networks for YouTube Recommendations](https://static.googleusercontent.com/media/research.google.com/ko//pubs/archive/45530.pdf)| Youtube |
-|     | 2015 | [AutoRec: Autoencoders Meet Collaborative Filtering](https://users.cecs.anu.edu.au/~akmenon/papers/autorec/autorec-paper.pdf)| Autorec |
-|     | 2016 | [ConvMF: Convolutional Matrix Factorization for Document Context-Aware Recommendation](https://dsail.kaist.ac.kr/files/RecSys16_slide.pdf) | ConvMF | 
-|     | 2022 | [AFGRL : Augmentation-Free Self-Supervised Learning on Graphs](https://arxiv.org/abs/2112.02472) | AFGRL | 
-| 2/17|      | 개별연구 아이디어 발표 | |
+| Date | Year | Paper | Code | Task |
+| :---: | --- | --- | --- | --- |
+| 1/3 | 2016 | [Semi-Supervised Classification with Graph Convolutional Networks](https://arxiv.org/abs/1609.02907)| GCN | GNN |
+|     | 2014 | [DeepWalk: Online Learning of Social Representations](https://arxiv.org/abs/1403.6652)| Deepwalk | GNN | 
+|     | 2008 | [Probabilistic Matrix Factorization](https://papers.nips.cc/paper/2007/file/d7322ed717dedf1eb4e6e52a37ea7bcd-Paper.pdf)| PMF | REC | 
+| 1/10| 2008 | [Factorization Meets the Neighborhood: a Multifaceted Collaborative Filtering Model](https://dl.acm.org/doi/pdf/10.1145/1401890.1401944)| Netflix |REC | 
+|     | 2009 | [Matrix Factorization Techniques for Recommender Systems](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf)| Netflix | REC | 
+|     | 2008 | [Collaborative Filtering for Implicit Feedback Datasets](http://yifanhu.net/PUB/cf.pdf)| OCCF | REC | 
+|     | 2012 | [BPR: Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf)| BPR | REC | 
+| 1/17| 2013 | [Translating Embeddings for Modeling Multi-relational Data](https://papers.nips.cc/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html)| TransE | GNN |
+|     | 2017 | [Collaborative Metric Learning](https://www.cs.cornell.edu/~ylongqi/paper/HsiehYCLBE17.pdf)| CML | REC | 
+|     | 2010 | [Factorization Machines](https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf)| FM | REC | 
+| 1/24| |Holiday|| |
+| 1/31| 2016 | [Wide & Deep Learning for Recommender Systems](https://arxiv.org/abs/1606.07792) | wide&deep| REC |
+|     | 2008 | [SoRec: Social Recommendation Using Probabilistic Matrix Factorization](https://dl.acm.org/doi/10.1145/1458082.1458205)| SoRec |REC|
+|     | 2011 | [Recommender Systems with Social Regularization](https://dennyzhou.github.io/papers/RSR.pdf)| SoReg | REC|
+|     | 2017 | [metapath2vec : Scalable Representation Learning for Heterogeneous Networks](https://dl.acm.org/doi/10.1145/3097983.3098036)| Metapath2Vec |GNN |
+| 2/7 | 2018 | [Deep Graph Infomax](https://arxiv.org/abs/1809.10341)| DGI | GNN | 
+|     | 2017 | [Inductive Representation Learning on Large Graphs](https://papers.nips.cc/paper/2017/file/5dd9db5e033da9c6fb5ba83c7a7ebea9-Paper.pdf)| GraphSAGE | GNN | 
+|     | 2013 | [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)| VAE |GNN | 
+|     | 2016 | [Variational Graph Auto-Encoders](https://arxiv.org/abs/1611.07308)| VGAE | GNN | 
+| 2/14| 2016 | [Deep Neural Networks for YouTube Recommendations](https://static.googleusercontent.com/media/research.google.com/ko//pubs/archive/45530.pdf)| Youtube | REC | 
+|     | 2015 | [AutoRec: Autoencoders Meet Collaborative Filtering](https://users.cecs.anu.edu.au/~akmenon/papers/autorec/autorec-paper.pdf)| Autorec | REC | 
+|     | 2016 | [ConvMF: Convolutional Matrix Factorization for Document Context-Aware Recommendation](https://dsail.kaist.ac.kr/files/RecSys16_slide.pdf) | ConvMF | REC | 
+|     | 2022 | [AFGRL : Augmentation-Free Self-Supervised Learning on Graphs](https://arxiv.org/abs/2112.02472) | AFGRL | GNN | 
+| 2/17|      | 개별연구 아이디어 발표 | | |
 
 
 <!--
