@@ -20,7 +20,7 @@ GCN은 다수의 노드가 레이블이 없을 때 노드 레이블을 추측하
 
 반대로 *inductive*은 *labeled 노드*를 참고해서 읽는 방식으로, supervised 방식으로 볼 수 있다. 
 
-![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/456414b0-3d3d-4c79-b98f-78cacdf3e9bf/transduction-image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230103%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230103T083813Z&X-Amz-Expires=86400&X-Amz-Signature=8341de05367232cb20d7838189f210bcb3eb0990e85cddface2cfdafe4692db7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22transduction-image.PNG.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/68208055/216919399-847ccbfb-12c5-4d81-9e05-88ccce9e8e68.png)
 
 출처 :  [Transduction Wikipedia](https://en.wikipedia.org/wiki/Transduction_(machine_learning))
 
